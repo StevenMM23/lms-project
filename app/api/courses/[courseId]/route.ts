@@ -15,6 +15,7 @@ export async function PATCH(
 
     const values = await req.json();
 
+    // En caso de que el usuario no este autorizado debido a que no obtuve ningun UserID significa que debo de enviarle status 401
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
